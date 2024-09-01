@@ -2,14 +2,11 @@ function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
   switch (randomNumber) {
     case 0:
-      console.log("Computer chose: rock");
       return "rock";
 
     case 1:
-      console.log("Computer chose: paper");
       return "paper";
     case 2:
-      console.log("Computer chose: scissors");
       return "scissors";
   }
 }
@@ -19,9 +16,9 @@ function getHumanChoice(round) {
     "ROUND " + round + " || Enter your choice: rock, paper, or scissors"
   );
   choice = choice.toLowerCase();
-  if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+  while(choice !== "rock" && choice !== "paper" && choice !== "scissors") {
     console.log("Invalid choice, please enter rock, paper, or scissors!");
-    return prompt("Invalid choice, please enter rock, paper, or scissors!");
+    choice= prompt("Invalid choice, please enter rock, paper, or scissors!");
   }
   return choice;
 }
@@ -32,6 +29,7 @@ function playGame() {
   let humanScore = (computerScore = 0);
   let round = 1;
   function playGround(humanChoice, computerChoice) {
+    console.log("ROUND " + round);
     console.log("Computer chose: " + computerChoice);
     console.log("You chose: " + humanChoice);
     if (humanChoice === computerChoice) {
@@ -39,32 +37,31 @@ function playGame() {
     } else if (humanChoice === "rock") {
       if (computerChoice === "paper") {
         computerScore++;
-        return "Computer wins!";
+        return "Computer wins!, paper beats rock";
       } else {
         humanScore++;
-        return "Human wins!";
+        return "Human wins!, rock beats scissors";
       }
     } else if (humanChoice === "paper") {
       if (computerChoice === "scissors") {
         computerScore++;
-        return "Computer wins!";
+        return "Computer wins!, scissors beats paper";
       } else {
         humanScore++;
-        return "Human wins!";
+        return "Human wins!, paper beats rock";
       }
     } else if (humanChoice === "scissors") {
       if (computerChoice === "rock") {
         computerScore++;
-        return "Computer wins!";
+        return "Computer wins!, rock beats scissors";
       } else {
         humanScore++;
-        return "Human wins!";
+        return "Human wins!, scissors beats paper";
       }
     }
   }
   for (let i = 0; i < 5; i++) {
-    
-    console.log(playGround(getHumanChoice(round), getComputerChoice));
+    console.log(playGround(getHumanChoice(round), getComputerChoice()));
     round++;
   }
   console.log(
