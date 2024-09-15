@@ -4,19 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🪨📄✂️ rock-paper-scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <h1 style="text-align: center;">🪨📄✂️ rock-paper-scissors</h1>
-    <br>
+    <h1 style="text-align: center">🪨📄✂️ rock-paper-scissors</h1>
+    <p style="text-align: center">
+      Click on the buttons to play the game. <br />
+      The computer will randomly choose an option and the result will be
+      displayed below. First to 5 wins!
+      <br />
+    </p>
+
     <div
       id="game"
       style="display: flex; justify-content: center; gap: 4px; margin: auto"
     >
-      <button onclick="play('rock')">🪨</button>
-      <button onclick="play('paper')">📄</button>
-      <button onclick="play('scissors')">✂️</button>
+      <button class="rock">rock 🪨</button>
+      <button class="paper">paper 📄</button>
+      <button class="scissors">scissors ✂️</button>
     </div>
-    <div id="result"></div>
+    <div class="round" style="text-align: center;">ROUNDS:</div>
+    <div class="scoreboard" style="text-align: center;">Scores:</div>
+    <div class="result" style="text-align: center">Results:</div>
+    <div class="end" style="text-align: center"></div>
+    <button class="reset" style="display: block; margin: auto;">Reset</button>
   </body>
 </html>
